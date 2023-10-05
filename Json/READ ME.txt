@@ -1,0 +1,52 @@
+//Json file
+{
+    "items":[
+        {
+            "sys":{
+                "id":1
+            },
+            "fields":{
+                "title":"Python Programming Mastercourse",
+                "price":123.99,
+                "image":{
+                    "fields":{
+                        "url":""
+                    }
+                }
+            }
+        }
+    ]
+}
+
+//convert to C#
+
+// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class Fields
+    {
+        public string title { get; set; }
+        public double price { get; set; }
+        public Image image { get; set; }
+        public string url { get; set; }
+    }
+
+    public class Image
+    {
+        public Fields fields { get; set; }
+    }
+
+    public class Item
+    {
+        public Sys sys { get; set; }
+        public Fields fields { get; set; }
+    }
+
+    public class Root
+    {
+        public List<Item> items { get; set; }
+    }
+
+    public class Sys
+    {
+        public int id { get; set; }
+    }
+
